@@ -20,7 +20,7 @@
   
 // CREATE TABLE `book_store_chemas`.`tbl_product` (
 //     `id` INT NOT NULL AUTO_INCREMENT,
-//     `name_product` VARCHAR(95) NULL,
+//     `name_product` VARCHAR(100) NULL,
 //     `category_id` INT NULL,
 //     `number_stock` INT NULL,
 //     `price` INT NULL,
