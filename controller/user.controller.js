@@ -1,4 +1,4 @@
-const {getUser,sortById,filterStatus,findUserByEmail,makeNewPassword} = require("../model/user.model")
+const {getUser,sortById,filterStatus,findUserByEmail,makeNewPassword,checkEmailAndPassword,updatePassword} = require("../model/user.model")
 var nodemailer = require('nodemailer');
 const { getMaxListeners } = require('process');
 module.exports.getValueUser = async(req,res)=>{
@@ -31,6 +31,33 @@ module.exports.fogortPassword = async(req,res)=>{
     }
 
 }
+module.exports.resetPassword = async(req,res)=>{
+    const {email,oldPassword,newPassword} = req.body
+    console.log(email,oldPassword,newPassword);
+    let [data] = await checkEmailAndPassword(email,oldPassword)
+    console.log(data);
+    if(data.length>0){
+        await updatePassword(data[0].id,newPassword).then(()=>res.json("update thanh cong"))
+    }else{
+        res.status(300).json("update khong thanh cong")
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function sendMail (mail){
     let mailTransporter = nodemailer.createTransport({
