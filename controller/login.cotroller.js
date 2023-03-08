@@ -6,6 +6,6 @@ module.exports.login=(req,res)=>{
     res.cookie("cookieToken",token,{sign:"true"})
     res.status(200).json({
         status:"success",
-        token
+        token:token
     })
 }
