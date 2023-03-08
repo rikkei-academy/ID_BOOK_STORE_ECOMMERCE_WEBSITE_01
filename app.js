@@ -5,11 +5,13 @@ const port = 8000;
 
 const home = require("./routers/home.routes")
 const search = require("./routers/search.routes")
+const forgotPassword = require("./routers/user.routes")
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 app.use("/",home)
 app.use("/search",search)
+app.use("/forgot-passord",forgotPassword)
 
 app.listen(port,()=>{
 console.log(`listen http://localhost/${port}`);

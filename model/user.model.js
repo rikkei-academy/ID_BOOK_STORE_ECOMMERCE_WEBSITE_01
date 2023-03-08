@@ -18,3 +18,9 @@ module.exports.sortById =()=>{
 module.exports.filterStatus=(status)=>{
     return db.query(`SELECT * FROM book_store_chemas.tbl_user  where status = "${status}"`)
 }
+module.exports.findUserByEmail = (email)=>{
+    return db.query(`SELECT * FROM book_store_chemas.tbl_user where tbl_user.email ="${email}";`)
+}
+module.exports.makeNewPassword = (id)=>{
+    return db.query(`UPDATE book_store_chemas.tbl_user SET password = '12345678' WHERE (id = ${id});`)
+}
