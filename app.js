@@ -1,12 +1,17 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-const port = 8080;
+const port = 8000;
+
+const home = require("./routers/home.routes")
+const search = require("./routers/search.routes")
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
+app.use("/",home)
+app.use("/search",search)
 
 app.listen(port,()=>{
-console.log("dkm");
+console.log(`listen http://localhost/${port}`);
 
 })
