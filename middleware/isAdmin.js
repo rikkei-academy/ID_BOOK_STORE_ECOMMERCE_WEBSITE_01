@@ -5,7 +5,7 @@ module.exports.isAdmin=(req,res,next)=>{
             res.status(500).json(err)
         }else{
             if(decode.role=='user'){
-                res.status(200).json({
+                res.status(500).json({
                     status:'fail, you are not admin'
                 })
             }else{
