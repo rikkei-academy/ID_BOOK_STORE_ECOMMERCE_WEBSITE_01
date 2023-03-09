@@ -1,6 +1,6 @@
 const db=require('../utils/db')
-module.exports.getAllProd=()=>{
-    return db.execute('select * from tbl_product')
+module.exports.getAllProd=(min,max)=>{
+    return db.execute('select * from tbl_product limit min,max ')
 }
 module.exports.addProd=(name,stock,price,year,rating, description, image, author,title, cate)=>{
     const arr=[name,stock,price,year,rating, description, image, author,title, cate]
@@ -11,4 +11,7 @@ module.exports.updateProduct=(stock,id)=>{
 }
 module.exports.deleteProd=(id)=>{
     return db.execute(`delete from tbl_product where id="${id}"`)
+}
+module.exports.searchProd=(name)=>{
+    return db.execute(`select * from tbl_product where name_product like '%${name}%' `)
 }

@@ -1,7 +1,10 @@
-const { getAllProd, addProd, updateProduct,deleteProd } = require("../model/product");
+const { getAllProd, addProd, updateProduct,deleteProd,searchProd } = require("../model/product");
 module.exports.getAllProd = async (req, res) => {
   try {
-    let [result] = await getAllProd();
+    let {page,per_page}=req.query
+    let min=(Number(page)-1)*Number(per_page);
+    let max=Number(page)*Number(per_page);
+    let [result] = await getAllProd(min,max);
     res.status(200).json(result);
   } catch (err) {
     res.status(500).json(err);
@@ -64,4 +67,17 @@ catch(err)
 {
     res.status(500).json(err)
 }
+}
+module.exports.searchPro=async(req,res)=>{
+    try{
+      let [result]=  await searchProd(req.query.name)
+        res.status(200).json({
+            status:'success',
+            data:result
+        })
+    }
+    catch(err)
+    {
+        res.status(500).json(err)
+    }
 }
