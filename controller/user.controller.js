@@ -1,6 +1,6 @@
 const bcrypt=require('bcrypt')
 const saltRounds = 10;
-const {addOnceUser,updateIdcart}=require('../model/user')
+const {addOnceUser,updateIdcart,deleteUser,updateUser}=require('../model/user')
 module.exports.regis=async (req,res)=>{
  try{
     const hash=bcrypt.hashSync(req.body.password,saltRounds)
@@ -16,4 +16,28 @@ module.exports.regis=async (req,res)=>{
  {
     res.status(500).json(err)
  }
+}
+module.exports.updateUser= async(req,res)=>{
+   try{
+      await updateUser(req.body.role,req.params.id)
+      res.status(200).json({
+         status:'success'
+      })
+   }
+   catch(err)
+   {
+      res.status(500).json(err)
+   }
+}
+module.exports.deleteUser=async(req,res)=>{
+   try{
+      await deleteUser(req.params.id)
+      res.status(200).json({
+         status:'success'
+      })
+   }
+   catch(err)
+   {
+      res.status(500).json(err)
+   }
 }
