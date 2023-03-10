@@ -116,6 +116,6 @@
 // ADD CONSTRAINT `add to cart - product`
 //   FOREIGN KEY (`product_id`)
 //   REFERENCES `book_store_chemas`.`tbl_order_product` (`id`)
-//   ON DELETE CASCADE
+//   ON DELETE CASCADE;
 //   ON UPDATE CASCADE;
 
