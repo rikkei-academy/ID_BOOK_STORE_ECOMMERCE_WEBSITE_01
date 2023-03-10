@@ -9,6 +9,8 @@ const routerLogin=require('./routes/login.routes')
 const routerLogout=require("./routes/logout.routes")
 const routerUpload=require('./routes/uploadImage.routes')
 const routerProd=require('./routes/product.routes')
+const routerCate=require('./routes/cate.routes')
+const routerReview=require('./routes/review.routes')
 const morgan=require('morgan')
 const dotenv=require('dotenv')
 const passportSetup = require("./passport");
@@ -32,7 +34,8 @@ app.use('/api/v1/login',routerLogin)
 app.use('/api/v1/logout',routerLogout)
 app.use('/api/v1/upload',routerUpload)
 app.use('/api/v1/product',routerProd)
-
+app.use('/api/v1/cate',routerCate)
+app.use('/api/v1/review',routerReview)
 app.listen(port,()=>{
     console.log(`server is running on http://localhost/${port}`)
 })
