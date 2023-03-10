@@ -1,3 +1,4 @@
+
 const bcrypt=require('bcrypt')
 const saltRounds = 10;
 const {addOnceUser,updateIdcart,deleteUser,updateUser}=require('../model/user')
