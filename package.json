@@ -1,5 +1,5 @@
 {
-  "name": "ojt_js09_backend",
+  "name": "id_book_store_ecommerce_website_01",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,11 +10,22 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.2",
-    "express": "^4.18.2",
-    "multer": "^1.4.5-lts.1",
-    "mysql2": "^3.2.0",
+    "@cloudinary/url-gen": "^1.9.2",
+    "bcrypt": "^5.1.0",
     "nodemailer": "^6.9.1",
-    "nodemon": "^2.0.21"
+    "body-parser": "^1.20.2",
+    "cloudinary": "^1.35.0",
+    "cookie-session": "^2.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "jsonwebtoken": "^9.0.0",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.2.0",
+    "nodemon": "^2.0.21",
+    "passport": "^0.5.3",
+    "passport-facebook": "^3.0.0",
+    "passport-google-oauth20": "^2.0.0"
   }
 }

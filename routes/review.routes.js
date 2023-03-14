@@ -1,0 +1,11 @@
+const {getAllReviewWithProduct,getBookCanReview,addReview,updateReview,deleteReview,getReviewWithUser}=require('../controller/review.controller')
+const {isAdmin}=require('../middleware/isAdmin')
+const express=require('express')
+const router=express.Router()
+router.get('/canreview',getBookCanReview)
+router.get('/',getReviewWithUser)
+router.get('/:id',getAllReviewWithProduct)
+router.post('/:id',addReview)
+router.put('/:id',updateReview)
+router.delete('/:id',isAdmin,deleteReview)
+module.exports=router
